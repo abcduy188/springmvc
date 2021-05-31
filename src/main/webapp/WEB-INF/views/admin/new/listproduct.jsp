@@ -27,10 +27,8 @@
 					<div class="row">
 						<div class="col-xs-12">
 							<c:if test="${not empty message}">
-									<div class="alert alert-${alert}">
-			  							${message}
-									</div>
-								</c:if>
+								<div class="alert alert-${alert}">${message}</div>
+							</c:if>
 							<div class="widget-box table-filter">
 								<div class="table-btn-controls">
 									<div class="pull-right tableTools-container">
@@ -44,12 +42,13 @@
 													class="fa fa-plus-circle bigger-110 purple"></i>
 											</span>
 											</a>
-											<button id="btnDelete" type="button" onclick="warningBeforeDelete()"
-														class="dt-button buttons-html5 btn btn-white btn-primary btn-bold" data-toggle="tooltip" title='Xóa bài viết'>
-																<span>
-																	<i class="fa fa-trash-o bigger-110 pink"></i>
-																</span>
-												</button>
+											<button id="btnDelete" type="button"
+												onclick="warningBeforeDelete()"
+												class="dt-button buttons-html5 btn btn-white btn-primary btn-bold"
+												data-toggle="tooltip" title='Xóa bài viết'>
+												<span> <i class="fa fa-trash-o bigger-110 pink"></i>
+												</span>
+											</button>
 										</div>
 									</div>
 								</div>
@@ -73,7 +72,7 @@
 
 													<tr>
 														<td><input type="checkbox" id="checkbox_${item.id}"
-															value="${item.id}"></td>
+															class="checkitem" value="${item.id}"></td>
 														<td>${item.tensp}</td>
 														<td>${item.mota}</td>
 														<td><img
@@ -103,40 +102,53 @@
 		</form>
 	</div>
 	<script type="text/javascript">
+		$("#checkAll").change(function() {
+			$(".checkitem").prop("checked", $(this).prop("checked"))
+		});
+		$(".checkitem").change(function() {
+			if ($(this).prop("checked") == false) {
+				$("#checkAll").prop("checked", false)
+			}
+			if ($(".checkitem:checked").length == $(".checkitem").length) {
+				$("#checkAll").prop("checked", true)
+			}
+		});
+
 		function warningBeforeDelete() {
 			swal({
-				title: "Xóa sản phẩm?",
-				  text: "Bạn có chắc muốn xóa sản phẩm?",
-				  icon: "warning",
-				  buttons: true,
-				  dangerMode: true,
-			}).then(function(isConfirmed) {
+				title : "Xóa sản phẩm?",
+				text : "Bạn có chắc muốn xóa sản phẩm?",
+				icon : "warning",
+				buttons : true,
+				dangerMode : true,
+			}).then(
+					function(isConfirmed) {
 						if (isConfirmed) {
 							var ids = $('tbody input[type=checkbox]:checked')
 									.map(function() {
 										return $(this).val();
 									}).get();
 							deleteProduct(ids);
-						}else {
-						    swal("Đã hủy thao tác!");
+						} else {
+							swal("Đã hủy thao tác!");
 						}
 					});
-			
+
 		}
 		function deleteProduct(data) {
-	        $.ajax({
-	            url: '${APIurl}',
-	            type: 'DELETE',
-	            contentType: 'application/json',
-	            data: JSON.stringify(data),
-	            success: function (result) {
-	                window.location.href = "${newURL}?&message=delete_success";
-	            },
-	            error: function (error) {
-	            	window.location.href = "${newURL}?&message=error_system";
-	            }
-	        });
-	    }
+			$.ajax({
+				url : '${APIurl}',
+				type : 'DELETE',
+				contentType : 'application/json',
+				data : JSON.stringify(data),
+				success : function(result) {
+					window.location.href = "${newURL}?&message=delete_success";
+				},
+				error : function(error) {
+					window.location.href = "${newURL}?&message=error_system";
+				}
+			});
+		}
 	</script>
 </body>
 
