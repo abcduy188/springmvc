@@ -1,6 +1,7 @@
 package com.javaweb.api.admin;
 
 import java.util.Base64;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -18,6 +19,7 @@ import com.javaweb.DTO.ProductDTO;
 import com.javaweb.service.ICategoryService;
 import com.javaweb.service.IProductService;
 import com.javaweb.utils.CommonConstant;
+import com.javaweb.utils.MessageUltis;
 @RestController(value="productAPIOfAdmin")
 public class ProductAPI {
 	@Autowired
@@ -26,6 +28,8 @@ public class ProductAPI {
 	private ICategoryService categoryService;
 	@Autowired 
 	private CommonConstant commonConstant;
+	@Autowired
+	private MessageUltis messageUtils;
 	//GET
 	@GetMapping(value = "/quan-tri/trang-chu")
 	public ModelAndView homePage() {
@@ -35,9 +39,14 @@ public class ProductAPI {
 
 
 	@GetMapping(value = "/quan-tri/danh-sach-san-pham")
-	public ModelAndView showList() {
+	public ModelAndView showList(HttpServletRequest request) {
 		ProductDTO model = new ProductDTO();
 		ModelAndView mav = new ModelAndView("admin/new/listproduct");
+		if (request.getParameter("message") != null) {
+			Map<String, String> message = messageUtils.getMessage(request.getParameter("message"));
+			mav.addObject("message", message.get("message"));
+			mav.addObject("alert", message.get("alert"));
+		}
 		model.setListResult(productService.findAll());
 		mav.addObject("model", model);
 		return mav;
@@ -49,6 +58,11 @@ public class ProductAPI {
 		ProductDTO model = new ProductDTO();
 		if (id != null) {
 			model = productService.findById(id);
+		}
+		if (request.getParameter("message") != null) {
+			Map<String, String> message = messageUtils.getMessage(request.getParameter("message"));
+			mav.addObject("message", message.get("message"));
+			mav.addObject("alert", message.get("alert"));
 		}
 		mav.addObject("categories", categoryService.findAll());
 		mav.addObject("model", model);
@@ -87,6 +101,6 @@ public class ProductAPI {
 	@DeleteMapping("/api/product")
 	public void deleteProduct(@RequestBody long[] ids)
 	{ 
-		System.out.print("ok");
+		productService.delete(ids);
 	}
 }

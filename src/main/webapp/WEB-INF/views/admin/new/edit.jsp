@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@include file="/common/taglib.jsp"%>
-<c:url var="newURL" value="//quan-tri/danh-sach-san-pham" />
+<c:url var="newURL" value="/quan-tri/danh-sach-san-pham" />
 <c:url var="editNewURL" value="/quan-tri/bai-viet/chinh-sua" />
 <c:url var="newAPI" value="/api/product" />
 <html>
@@ -180,10 +180,10 @@
 				data : JSON.stringify(data),
 				dataType : 'json',
 				success : function(result) {
-					window.location.href = "${newURL}?";
+					window.location.href = "${newURL}?id="+result.id+"&mess	age=insert_success";
 				},
 				error : function(error) {
-					window.location.href = "${newURL}?";
+					window.location.href = "${editNewURL}?&message=error_system";
 				}
 			});
 		}
@@ -194,10 +194,10 @@
 				data : JSON.stringify(data),
 				contentType : 'application/json',
 				success : function(result) {
-					window.location.href = "${newURL}?";
+					window.location.href = "${newURL}?id="+result.id+"&message=update_success";
 				},
 				error : function(error) {
-					window.location.href = "${newURL}?";
+					window.location.href = "${editNewURL}?&message=error_system";
 				}
 			});
 		}

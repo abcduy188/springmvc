@@ -8,4 +8,5 @@ public interface IProductService {
 	List<ProductDTO> findAll();
 	ProductDTO findById(long id);
 	ProductDTO save(ProductDTO dto);
+	void delete(long[] ids);
 }

@@ -57,5 +57,11 @@ public class ProductService implements IProductService {
 		}
 		return productConverter.toDto(productRepositpory.save(productEntity));
 	}
-
+	@Override
+	@Transactional
+	public void delete(long[] ids) {
+		for (long id: ids) {
+			productRepositpory.delete(id);
+		}
+	}
 }
