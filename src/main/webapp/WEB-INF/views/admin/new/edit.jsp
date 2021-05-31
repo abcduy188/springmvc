@@ -31,8 +31,8 @@
 				<div class="row">
 					<div class="col-xs-12">
 						<c:if test="${not empty message}">
-							<div class="alert alert-${alert}">${message}</div>
-						</c:if>
+								<div class="alert alert-${alert}">${message}</div>
+							</c:if>
 						<form:form class="form-horizontal" role="form" id="formSubmit"
 							modelAttribute="model" enctype="multipart/form-data">
 							<div class="form-group">
@@ -129,7 +129,7 @@
 			if (files != undefined) {
 				var reader = new FileReader();
 				reader.onload = function(e) {
-					dataArray["base64"] = e.target.result;
+					dataArray["base64"] = (e.target.result).split(",")[1];
 					dataArray["hinhanh"] = files.name;
 					formData.push({
 						name : "base64",
@@ -164,10 +164,10 @@
 				data : JSON.stringify(data),
 				dataType : 'json',
 				success : function(result) {
-					window.location.href = "${newURL}?";
+					window.location.href = "${newURL}?&message=insert_success";
 				},
 				error : function(error) {
-					window.location.href = "${newURL}?";
+					window.location.href = "${newURL}?&message=error_system";
 				}
 			});
 		}
@@ -180,27 +180,27 @@
 				data : JSON.stringify(data),
 				dataType : 'json',
 				success : function(result) {
-					window.location.href = "${newURL}?id="+result.id+"&mess	age=insert_success";
+					window.location.href = "${newURL}?&message=update_success";
 				},
 				error : function(error) {
-					window.location.href = "${editNewURL}?&message=error_system";
+					window.location.href = "${newURL}?&message=error_system";
 				}
 			});
 		}
-		function uploadFile(data) {
+		/* function uploadFile(data) {
 			$.ajax({
 				url : '${newAPI}',
 				type : 'POST',
 				data : JSON.stringify(data),
 				contentType : 'application/json',
 				success : function(result) {
-					window.location.href = "${newURL}?id="+result.id+"&message=update_success";
+					window.location.href = "${newURL}?&message=update_succes";
 				},
 				error : function(error) {
-					window.location.href = "${editNewURL}?&message=error_system";
+					window.location.href = "${newURL}?&message=error_system";
 				}
 			});
-		}
+		} */
 	</script>
 </body>
 </html>
