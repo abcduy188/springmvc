@@ -66,8 +66,8 @@
 								<label for="content"
 									class="col-sm-3 control-label no-padding-right">Mô tả</label>
 								<div class="col-sm-9">
-									<form:textarea path="mota" rows="" cols="" style="height: 120px;width: 411px"
-										cssClass="form-control" />
+									<form:textarea path="mota" rows="" cols=""
+										style="height: 120px;width: 411px" cssClass="form-control" />
 								</div>
 							</div>
 							<div class="form-group">
@@ -75,8 +75,9 @@
 									class="col-sm-3 control-label no-padding-right">Nội
 									dung:</label>
 								<div class="col-sm-9">
-									<form:textarea path="content"  rows="" cols="" style="height: 120px;width: 411px"
-										cssClass="form-control" id="content" />
+									<form:textarea path="content" rows="" cols=""
+										style="height: 120px;width: 411px" cssClass="form-control"
+										id="content" />
 								</div>
 							</div>
 							<form:hidden path="id" id="newId" />
@@ -97,9 +98,10 @@
 									</c:if>
 
 									&nbsp; &nbsp; &nbsp;
-									<button class="btn" type="reset" >
+									<button class="btn" type="reset">
 										<i class="ace-icon fa fa-undo bigger-110"></i> Hủy
 									</button>
+									 <a href="<c:url value='/quan-tri/danh-sach-san-pham'/>" class="ace-icon fa fa-undo bigger-110">Trở về danh sách</a>
 								</div>
 							</div>
 						</form:form>

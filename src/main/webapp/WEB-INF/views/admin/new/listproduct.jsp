@@ -65,7 +65,7 @@
 											</thead>
 											<tbody>
 												<c:forEach var="item" items="${model.listResult}">
-													<%-- <c:if test="${item.categoryCode=='ao-so-mi'}"> --%>
+													 
 														<tr>
 															<td>${item.id}</td>
 															<td>${item.tensp}</td>
@@ -82,7 +82,7 @@
 																href='${updateNewURL}'><i
 																	class="fa fa-pencil-square-o" aria-hidden="true"></i> </a></td>
 														</tr>
-													<%-- </c:if> --%>
+													 
 												</c:forEach>
 											</tbody>
 										</table>
