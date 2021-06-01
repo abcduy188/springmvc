@@ -52,7 +52,7 @@
 										<c:param name="id" value="${item.id}" />
 									</c:url>
 									<a href='${updateNewURL}'><img class="img-fluid" alt="hình"
-										src="../template/img/${item.hinhanh}"></a>
+										src="../template/assets/img/thumbnail/${item.hinhanh}"></a>
 								</div>
 								<div class="col-10">
 									<div class="showTimes__detail">
@@ -95,7 +95,7 @@
 										<c:param name="id" value="${item.id}" />
 									</c:url>
 									<a href='${updateNewURL}'><img class="img-fluid" alt="hình"
-										src="../template/img/${item.hinhanh}"></a>
+										src="../template/assets/img/thumbnail/${item.hinhanh}"></a>
 								</div>
 								<div class="col-10">
 									<div class="showTimes__detail">
@@ -138,7 +138,7 @@
 										<c:param name="id" value="${item.id}" />
 									</c:url>
 									<a href='${updateNewURL}'><img class="img-fluid" alt="hình"
-										src="../template/img/${item.hinhanh}"></a>
+										src="../template/assets/img/thumbnail/${item.hinhanh}"></a>
 								</div>
 								<div class="col-10">
 									<div class="showTimes__detail">
@@ -181,7 +181,7 @@
 										<c:param name="id" value="${item.id}" />
 									</c:url>
 									<a href='${updateNewURL}'><img class="img-fluid" alt="hình"
-										src="../template/img/${item.hinhanh}"></a>
+										src="../template/assets/img/thumbnail/${item.hinhanh}"></a>
 								</div>
 								<div class="col-10">
 									<div class="showTimes__detail">
@@ -224,7 +224,7 @@
 										<c:param name="id" value="${item.id}" />
 									</c:url>
 									<a href='${updateNewURL}'><img class="img-fluid" alt="hình"
-										src="../template/img/${item.hinhanh}"></a>
+										src="../template/assets/img/thumbnail/${item.hinhanh}"></a>
 								</div>
 								<div class="col-10">
 									<div class="showTimes__detail">
@@ -267,7 +267,7 @@
 										<c:param name="id" value="${item.id}" />
 									</c:url>
 									<a href='${updateNewURL}'><img class="img-fluid" alt="hình"
-										src="../template/img/${item.hinhanh}"></a>
+										src="../template/assets/img/thumbnail/${item.hinhanh}"></a>
 								</div>
 								<div class="col-10">
 									<div class="showTimes__detail">

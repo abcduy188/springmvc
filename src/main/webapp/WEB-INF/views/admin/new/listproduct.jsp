@@ -76,7 +76,7 @@
 														<td>${item.tensp}</td>
 														<td>${item.mota}</td>
 														<td><img
-															src="<c:url value='/template/img/${item.hinhanh}'/>"
+															src="<c:url value='/template/assets/img/thumbnail/${item.hinhanh}'/>"
 															alt="${item.hinhanh}" height="20px" width="20px"></td>
 														<td>${item.categoryCode}</td>
 														<td><c:url var="updateNewURL"

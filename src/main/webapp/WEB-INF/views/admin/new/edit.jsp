@@ -187,20 +187,7 @@
 				}
 			});
 		}
-		/* function uploadFile(data) {
-			$.ajax({
-				url : '${newAPI}',
-				type : 'POST',
-				data : JSON.stringify(data),
-				contentType : 'application/json',
-				success : function(result) {
-					window.location.href = "${newURL}?&message=update_succes";
-				},
-				error : function(error) {
-					window.location.href = "${newURL}?&message=error_system";
-				}
-			});
-		} */
+		
 	</script>
 </body>
 </html>
