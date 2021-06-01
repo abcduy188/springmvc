@@ -15,6 +15,7 @@
 	crossorigin="anonymous">
 <!-- 	MAIN CSS -->
 <link rel="stylesheet" href="<c:url value='/template/web/css/index.css'/>">
+<link rel="icon" type="image/png" href="template/login/images/icons/logodc1.ico" />
 <title>DCD Fashion</title>
 </head>
 <body>

@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@include file="/common/taglib.jsp"%>
-<c:url var="newURL" value="//quan-tri/danh-sach-san-pham" />
+<c:url var="newURL" value="/quan-tri/danh-sach-san-pham" />
 <c:url var="editNewURL" value="/quan-tri/bai-viet/chinh-sua" />
 <c:url var="newAPI" value="/api/product" />
 <html>
@@ -31,8 +31,8 @@
 				<div class="row">
 					<div class="col-xs-12">
 						<c:if test="${not empty message}">
-							<div class="alert alert-${alert}">${message}</div>
-						</c:if>
+								<div class="alert alert-${alert}">${message}</div>
+							</c:if>
 						<form:form class="form-horizontal" role="form" id="formSubmit"
 							modelAttribute="model" enctype="multipart/form-data">
 							<div class="form-group">
@@ -58,15 +58,16 @@
 								<label class="col-sm-3 control-label no-padding-right"
 									for="form-field-1">Hình Ảnh</label>
 								<div class="col-sm-9">
-									<form:input path="hinhanh" type="file" class="col-xs-10 col-sm-5" id="hinhanh"/>
+									<form:input path="hinhanh" type="file"
+										class="col-xs-10 col-sm-5" />
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="content"
 									class="col-sm-3 control-label no-padding-right">Mô tả</label>
 								<div class="col-sm-9">
-									<form:textarea path="mota" rows="5" cols="5"
-										cssClass="form-control" id="mota" />
+									<form:textarea path="mota" rows="" cols=""
+										style="height: 120px;width: 411px" cssClass="form-control" />
 								</div>
 							</div>
 							<div class="form-group">
@@ -74,8 +75,9 @@
 									class="col-sm-3 control-label no-padding-right">Nội
 									dung:</label>
 								<div class="col-sm-9">
-									<form:textarea path="content" rows="5" cols="10"
-										cssClass="form-control" id="content" />
+									<form:textarea path="content" rows="" cols=""
+										style="height: 120px;width: 411px" cssClass="form-control"
+										id="content" />
 								</div>
 							</div>
 							<form:hidden path="id" id="newId" />
@@ -99,6 +101,7 @@
 									<button class="btn" type="reset">
 										<i class="ace-icon fa fa-undo bigger-110"></i> Hủy
 									</button>
+									 <a href="<c:url value='/quan-tri/danh-sach-san-pham'/>" class="ace-icon fa fa-undo bigger-110">Trở về danh sách</a>
 								</div>
 							</div>
 						</form:form>
@@ -109,33 +112,62 @@
 	</div>
 
 	<script>
+		var editormota = '';
+		var editorcontent = '';
+		$(document).ready(function() {
+			editorcontent = CKEDITOR.replace('content');
+			editormota = CKEDITOR.replace('mota');
+		});
+
 		$('#btnAddOrUpdateNew').click(function(e) {
 			e.preventDefault();
 			var data = {};
+			var dataArray = {};
+
 			var formData = $('#formSubmit').serializeArray();
-			$.each(formData, function(i, v) {
-				data["" + v.name + ""] = v.value;
-			});
-			var id = $('#newId').val();
-			if (id == "") {
-				addNew(data);
-			} else {
-				updateNew(data);
+			var files = $('#hinhanh')[0].files[0];
+			if (files != undefined) {
+				var reader = new FileReader();
+				reader.onload = function(e) {
+					dataArray["base64"] = (e.target.result).split(",")[1];
+					dataArray["hinhanh"] = files.name;
+					formData.push({
+						name : "base64",
+						value : dataArray["base64"]
+					});
+					formData.push({
+						name : "hinhanh",
+						value : dataArray["hinhanh"]
+					});
+					$.each(formData, function(i, v) {
+						data["" + v.name + ""] = v.value;
+					});
+					data["content"] = editorcontent.getData();
+					data["mota"] = editormota.getData();
+					var id = $('#newId').val();
+					if (id == "") {
+						addNew(data);
+					} else {
+						updateNew(data);
+					}
+				};
+				reader.readAsDataURL(files);
 			}
+
 		});
 
 		function addNew(data) {
 			$.ajax({
 				url : '${newAPI}',
 				type : 'POST',
-				contentType : 'application/json', //client->server
+				contentType : 'application/json',
 				data : JSON.stringify(data),
-				dataType : 'json', //server->client
+				dataType : 'json',
 				success : function(result) {
-					window.location.href = "${newURL}?";
+					window.location.href = "${newURL}?&message=insert_success";
 				},
 				error : function(error) {
-					window.location.href = "${newURL}?";
+					window.location.href = "${newURL}?&message=error_system";
 				}
 			});
 		}
@@ -148,13 +180,14 @@
 				data : JSON.stringify(data),
 				dataType : 'json',
 				success : function(result) {
-					window.location.href = "${newURL}?";
+					window.location.href = "${newURL}?&message=update_success";
 				},
 				error : function(error) {
-					window.location.href = "${newURL}?";
+					window.location.href = "${newURL}?&message=error_system";
 				}
 			});
 		}
+		
 	</script>
 </body>
 </html>

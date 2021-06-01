@@ -16,24 +16,13 @@
 				style="padding-top: 100px;">
 				<li class="nav-item" role="presentation"><a class="nav-link"
 					id="mon-tab" data-toggle="tab" href="#mon" role="tab"
-					aria-controls="home" aria-selected="true">Áo sơ mi</a></li>
+					aria-controls="home" aria-selected="true">Quần Jogger</a></li>
 				<li class="nav-item" role="presentation"><a class="nav-link"
 					id="tue-tab" data-toggle="tab" href="#tue" role="tab"
-					aria-controls="home" aria-selected="true">Áo Po-Lo</a></li>
+					aria-controls="home" aria-selected="true">Quần Ka-Ki</a></li>
 				<li class="nav-item" role="presentation"><a class="nav-link "
 					id="wed-tab" data-toggle="tab" href="#wed" role="tab"
-					aria-controls="home" aria-selected="true">Áo Cotton compact
-						ngắn tay</a></li>
-				<li class="nav-item" role="presentation"><a class="nav-link "
-					id="thu-tab" data-toggle="tab" href="#thu" role="tab"
-					aria-controls="home" aria-selected="true">Áo Cotton compact dài
-						tay</a></li>
-				<li class="nav-item" role="presentation"><a class="nav-link "
-					id="fri-tab" data-toggle="tab" href="#fri" role="tab"
-					aria-controls="home" aria-selected="true">Áo Dài Tay</a></li>
-				<li class="nav-item" role="presentation"><a class="nav-link "
-					id="sat-tab" data-toggle="tab" href="#sat" role="tab"
-					aria-controls="home" aria-selected="true">Áo Thể Thao Nam</a></li>
+					aria-controls="home" aria-selected="true">Quần Short</a></li>
 			</ul>
 			<div class="tab-content" id="myTabContent">
 				<div class="tab-pane fade show active" id="mon" role="tabpanel"
@@ -46,7 +35,7 @@
 										<c:param name="id" value="${item.id}" />
 									</c:url>
 									<a href='${updateNewURL}'><img class="img-fluid" alt="hình"
-										src="../template/img/${item.hinhanh}"></a>
+										src="../template/assets/img/thumbnail/${model.hinhanh}"></a>
 								</div>
 								<div class="col-10">
 									<div class="showTimes__detail">
@@ -82,14 +71,14 @@
 				<div class="tab-pane fade" id="tue" role="tabpanel"
 					aria-labelledby="tue-tab">
 					<c:forEach var="item" items="${model.listResult}">
-						<c:if test="${item.categoryCode=='ao-po-lo'}">
+						<c:if test="${item.categoryCode=='quan-kaki'}">
 							<div class="row showTimes__movie my-4">
 								<div class="col-2">
 									<c:url var="updateNewURL" value="/trang-chu/danh-sach">
 										<c:param name="id" value="${item.id}" />
 									</c:url>
 									<a href='${updateNewURL}'><img class="img-fluid" alt="hình"
-										src="../template/img/${item.hinhanh}"></a>
+										src="../template/assets/img/thumbnail/${model.hinhanh}"></a>
 								</div>
 								<div class="col-10">
 									<div class="showTimes__detail">
@@ -125,14 +114,14 @@
 				<div class="tab-pane fade" id="wed" role="tabpanel"
 					aria-labelledby="wed-tab">
 					<c:forEach var="item" items="${model.listResult}">
-						<c:if test="${item.categoryCode=='ao-cotton-ngan-tay'}">
+						<c:if test="${item.categoryCode=='quan-short'}">
 							<div class="row showTimes__movie my-4">
 								<div class="col-2">
 									<c:url var="updateNewURL" value="/trang-chu/danh-sach">
 										<c:param name="id" value="${item.id}" />
 									</c:url>
 									<a href='${updateNewURL}'><img class="img-fluid" alt="hình"
-										src="../template/img/${item.hinhanh}"></a>
+										src="../template/assets/img/thumbnail/${model.hinhanh}"></a>
 								</div>
 								<div class="col-10">
 									<div class="showTimes__detail">
@@ -175,7 +164,7 @@
 										<c:param name="id" value="${item.id}" />
 									</c:url>
 									<a href='${updateNewURL}'><img class="img-fluid" alt="hình"
-										src="../template/img/${item.hinhanh}"></a>
+										src="../template/assets/img/thumbnail/${item.hinhanh}"></a>
 								</div>
 								<div class="col-10">
 									<div class="showTimes__detail">

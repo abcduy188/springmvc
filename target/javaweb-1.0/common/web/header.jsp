@@ -6,11 +6,6 @@
 	uri="http://www.opensymphony.com/sitemesh/decorator"%>
 <%@ page import="com.javaweb.utils.SecurityUtils"%>
 <div class="container">
-	<!-- <p class="bg-dark text-white text-right mb-0">
-				<i class="fas fa-phone-alt"></i> <span
-					class="mx-3 border-right pr-3">0389041070</span> <i
-					class="fa fa-search"></i>
-			</p> -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<a class="navbar-brand" href="#"> <img height="auto" width="250px"
 			src="<c:url value='/template/img/logodc1.png'/>" alt="">

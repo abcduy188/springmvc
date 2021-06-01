@@ -16,7 +16,7 @@
                 </li>
             </ul><!-- /.breadcrumb -->
         </div>
-        <img alt="anh" src="https://static3.cbrimages.com/wordpress/wp-content/uploads/2021/02/Bleach-Rukia.jpg">
+        <img alt="anh" src="D:\usr\var\thumbnail\2.jpg">
         <div class="page-content">
             <div class="row" >
                 <div class="col-xs-12">

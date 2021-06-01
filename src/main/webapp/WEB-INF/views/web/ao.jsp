@@ -1,23 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
+<c:url var="newURL" value="/trang-chu/trang-ao" />
 <!DOCTYPE html>
 
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-	<link rel="stylesheet"
+<!-- Bootstrap CSS -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+	crossorigin="anonymous">
+<link rel="stylesheet"
 	href="<c:url value='/template/web/css/index.css'/>">
-    <title>Hello, world!</title>
-  </head>
+<title>Hello, world!</title>
+</head>
 <body>
 	<section class="showTime">
 		<div class="container">
+			<form action="<c:url value='/trang-chu/list'/>">
+				Tìm kiếm: <input type="text" name="keyword" id="keyword" size="50"
+					th:value="${keyword}" required /> &nbsp; <input type="submit"
+					value="Tìm" /> &nbsp; <input type="button" value="Xóa"
+					id="btnClear" onclick="clearSearch()" />
+			</form>
 			<ul class="nav nav-tabs" id="myTab" role="tablist"
 				style="padding-top: 100px;">
 				<li class="nav-item" role="presentation"><a class="nav-link"
@@ -257,6 +268,11 @@
 			</div>
 		</div>
 	</section>
+	<script type="text/javascript">
+		function clearSearch() {
+			window.location.href = "${newURL}";
+		}
+	</script>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
 		crossorigin="anonymous"></script>

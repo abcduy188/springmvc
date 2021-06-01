@@ -13,6 +13,12 @@
 
 <body>
 	<div class="main-content">
+		<form action="<c:url value='/quan-tri/danh-sach-san-pham'/>">
+			<b>Tìm kiếm: </b> <input type="text" name="keyword" id="keyword" size="30"
+				value="${keyword}" required /> &nbsp; <input type="submit"
+				value="Search" /> &nbsp; <input type="button" value="Clear"
+				id="btnClear" onclick="clearSearch()" />
+		</form>
 		<form action="<c:url value='/quan-tri/danh-sach-san-pham'/>"
 			id="formSubmit" method="get">
 			<div class="main-content-inner">
@@ -102,6 +108,10 @@
 		</form>
 	</div>
 	<script type="text/javascript">
+		function clearSearch() {
+			window.location.href = "${newURL}";
+		}
+
 		$("#checkAll").change(function() {
 			$(".checkitem").prop("checked", $(this).prop("checked"))
 		});

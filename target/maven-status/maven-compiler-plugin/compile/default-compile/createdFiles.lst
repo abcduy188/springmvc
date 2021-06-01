@@ -5,12 +5,14 @@ com\javaweb\service\ICategoryService.class
 com\javaweb\repository\ProductRepository.class
 com\javaweb\service\impl\CustomUserDetailsService.class
 com\javaweb\service\impl\ProductService.class
+com\javaweb\utils\MessageUltis.class
 com\javaweb\entity\RoleEntity.class
 com\javaweb\converter\CategoryConverter.class
 com\javaweb\DTO\CategoryDTO.class
 com\javaweb\security\CustomSuccessHandler.class
 com\javaweb\service\impl\CategoryService.class
 com\javaweb\DTO\AbstractDTO.class
+com\javaweb\utils\CommonConstant.class
 com\javaweb\api\admin\ProductAPI.class
 com\javaweb\service\IProductService.class
 com\javaweb\entity\ProductEntity.class

@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,7 +40,7 @@ public class ProductAPI {
 
 
 	@GetMapping(value = "/quan-tri/danh-sach-san-pham")
-	public ModelAndView showList(HttpServletRequest request) {
+	public ModelAndView showList(HttpServletRequest request,@Param("keyword") String keyword) {
 		ProductDTO model = new ProductDTO();
 		ModelAndView mav = new ModelAndView("admin/new/listproduct");
 		if (request.getParameter("message") != null) {
@@ -47,7 +48,7 @@ public class ProductAPI {
 			mav.addObject("message", message.get("message"));
 			mav.addObject("alert", message.get("alert"));
 		}
-		model.setListResult(productService.findAll());
+		model.setListResult(productService.findAll(keyword));
 		mav.addObject("model", model);
 		return mav;
 	}
