@@ -8,7 +8,7 @@
   
     <ul class="nav nav-list">
         <li >
-            <a href="#" class="dropdown-toggle"  style="background-color: #808080;">
+            <a href="#" class="dropdown-toggle"  style="background-color: #343a40!important">
                 <i class="menu-icon fa fa-list"></i>
                 <span class="menu-text" style="color:blue"></span>
                <i style="font-size: 20px;color: white;">Quản Lí</i>
