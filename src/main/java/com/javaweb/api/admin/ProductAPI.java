@@ -34,7 +34,7 @@ public class ProductAPI {
 	//GET
 	@GetMapping(value = "/quan-tri/trang-chu")
 	public ModelAndView homePage() {
-		ModelAndView mav = new ModelAndView("admin/home");
+		ModelAndView mav = new ModelAndView("admin/adminhome");
 		return mav;
 	}
 
@@ -42,7 +42,7 @@ public class ProductAPI {
 	@GetMapping(value = "/quan-tri/danh-sach-san-pham")
 	public ModelAndView showList(HttpServletRequest request,@Param("keyword") String keyword) {
 		ProductDTO model = new ProductDTO();
-		ModelAndView mav = new ModelAndView("admin/new/listproduct");
+		ModelAndView mav = new ModelAndView("admin/new/listofproduct");
 		if (request.getParameter("message") != null) {
 			Map<String, String> message = messageUtils.getMessage(request.getParameter("message"));
 			mav.addObject("message", message.get("message"));
@@ -55,7 +55,7 @@ public class ProductAPI {
 
 	@GetMapping(value = "/quan-tri/san-pham/chinh-sua")
 	public ModelAndView editNew(@RequestParam(value = "id", required = false) Long id, HttpServletRequest request) {
-		ModelAndView mav = new ModelAndView("admin/new/edit");
+		ModelAndView mav = new ModelAndView("admin/new/editofproduct");
 		ProductDTO model = new ProductDTO();
 		if (id != null) {
 			model = productService.findById(id);

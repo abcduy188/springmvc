@@ -13,16 +13,26 @@
 
 <body>
 	<div class="main-content">
+		<div style="background-color: #343a40 !important;">
+			<form action="<c:url value='/quan-tri/danh-sach-san-pham'/>">
+				<b style="color: silver;">Tìm kiếm: </b> <input type="text" name="keyword" id="keyword"
+					size="30" value="${keyword}" required /> &nbsp; <input
+					type="submit" value="Search" /> &nbsp; <input type="button"
+					value="Clear" id="btnClear" onclick="clearSearch()" />
+			</form>
+		</div>
 		<form action="<c:url value='/quan-tri/danh-sach-san-pham'/>"
 			id="formSubmit" method="get">
 			<div class="main-content-inner">
-				<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+				<!-- <div class="breadcrumbs ace-save-state" id="breadcrumbs"
+					style="background-color: #343a40 !important;">
 					<ul class="breadcrumb">
-						<li><i class="ace-icon fa fa-home home-icon"></i> <a href="#">Trang
+						<li><i class="ace-icon fa fa-home home-icon"
+							style="color: silver;"></i> <a href="#" style="color: silver;">Trang
 								chủ</a></li>
 					</ul>
-					<!-- /.breadcrumb -->
-				</div>
+					/.breadcrumb
+				</div> -->
 				<div class="page-content">
 					<div class="row">
 						<div class="col-xs-12">
@@ -102,6 +112,10 @@
 		</form>
 	</div>
 	<script type="text/javascript">
+		function clearSearch() {
+			window.location.href = "${newURL}";
+		}
+
 		$("#checkAll").change(function() {
 			$(".checkitem").prop("checked", $(this).prop("checked"))
 		});
