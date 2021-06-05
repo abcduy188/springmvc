@@ -10,8 +10,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Dashtreme Admin - Free Dashboard for Bootstrap 4 by
-	Codervent</title>
+<title>DCD Fashion</title>
 <!-- loader-->
 <link rel="stylesheet"
 	href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
@@ -24,7 +23,7 @@
 <script src="<c:url value='/template/adminvip/assets/js/pace.min.js'/>"></script>
 <!--favicon-->
 <link rel="icon"
-	href="<c:url value='/template/adminvip/assets/images/favicon.ico'/>"
+	href="<c:url value='/template/adminvip/assets/images/edit.ico'/>"
 	type="image/x-icon'>">
 <!-- Vector CSS -->
 <link

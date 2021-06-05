@@ -24,9 +24,11 @@
 					<i class="zmdi zmdi-format-list-bulleted"></i> <span>Thêm
 						sản phẩm</span>
 			</a></li>
-			<li><a href="profile.html"> <i class="zmdi zmdi-face"></i> <span>Profile</span>
+			<li><a href="<c:url value='/quan-tri/tai-khoan'/>"> <i class="zmdi zmdi-face"></i> <span>Profile</span>
 			</a></li>
-
+			<li><a href="<c:url value='/trang-chu'/>"> <i
+					class="zmdi zmdi-balance"></i> <span>Trở về trang chủ</span>
+			</a></li>
 
 		</ul>
 

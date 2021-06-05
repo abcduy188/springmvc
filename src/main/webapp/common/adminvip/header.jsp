@@ -57,18 +57,38 @@
 				</ul></li>
 			<li class="nav-item"><a
 				class="nav-link dropdown-toggle dropdown-toggle-nocaret"
-				data-toggle="dropdown" href="#"> <span class="user-profile"><img
-						src="https://via.placeholder.com/110x110" class="img-circle"
-						alt="user avatar"></span>
+				data-toggle="dropdown" href="#"> <c:if test="${SecurityUtils.getPrincipal().getUsername()=='dyu'}"><span class="user-profile"><img
+						src="<c:url value='/template/adminvip/assets/images/avtduy.jpg'/>" class="img-circle"
+						alt="user avatar"></span></c:if>
+						<c:if test="${SecurityUtils.getPrincipal().getUsername()=='cuong'}"><span class="user-profile"><img
+						src="<c:url value='/template/adminvip/assets/images/avtcuong.jpg'/>" class="img-circle"
+						alt="user avatar"></span></c:if>
+						<c:if test="${SecurityUtils.getPrincipal().getUsername()=='duong'}"><span class="user-profile"><img
+						src="<c:url value='/template/adminvip/assets/images/avtduong.png'/>" class="img-circle"
+						alt="user avatar"></span></c:if>
 			</a>
 				<ul class="dropdown-menu dropdown-menu-right">
 					<li class="dropdown-item user-details"><a
 						href="javaScript:void();">
 							<div class="media">
+							<c:if test="${SecurityUtils.getPrincipal().getUsername()=='dyu'}">
 								<div class="avatar">
 									<img class="align-self-start mr-3"
-										src="https://via.placeholder.com/110x110" alt="user avatar">
+										src="<c:url value='/template/adminvip/assets/images/avtduy.jpg'/>" alt="user avatar">
 								</div>
+								</c:if>
+								<c:if test="${SecurityUtils.getPrincipal().getUsername()=='cuong'}">
+								<div class="avatar">
+									<img class="align-self-start mr-3"
+										src="<c:url value='/template/adminvip/assets/images/avtcuong.jpg'/>" alt="user avatar">
+								</div>
+								</c:if>
+								<c:if test="${SecurityUtils.getPrincipal().getUsername()=='duong'}">
+								<div class="avatar">
+									<img class="align-self-start mr-3"
+										src="<c:url value='/template/adminvip/assets/images/avtduong.png'/>" alt="user avatar">
+								</div>
+								</c:if>
 								<div class="media-body">
 									<h6 class="mt-2 user-title"><%=SecurityUtils.getPrincipal().getFullname()%></h6>
 									<p class="user-subtitle"><%=SecurityUtils.getPrincipal().getUsername()%></p>

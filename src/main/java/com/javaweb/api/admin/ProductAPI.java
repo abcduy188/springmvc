@@ -37,7 +37,11 @@ public class ProductAPI {
 		ModelAndView mav = new ModelAndView("admin/adminhome");
 		return mav;
 	}
-
+	@GetMapping(value = "/quan-tri/tai-khoan")
+	public ModelAndView profilePage() {
+		ModelAndView mav = new ModelAndView("admin/new/listofaccount");
+		return mav;
+	}
 
 	@GetMapping(value = "/quan-tri/danh-sach-san-pham")
 	public ModelAndView showList(HttpServletRequest request,@Param("keyword") String keyword) {
